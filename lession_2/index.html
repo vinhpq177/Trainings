@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<header>
+<script>
+    const sumAB = () => {
+        const valueA = document.getElementById('paramA').value;
+        alert('Gia tri tham so A = ' + valueA);
+    }
+</script>
+</header>
+<body>
+
+<form action="/action_page.php">
+  <label for="fname">A</label>
+  <input type="text" id="paramA"><br><br>
+  <label for="lname">B</label>
+  <input type="text" id="paramB"><br><br>
+  <button type="button" onclick="sumAB()">+</button>
+  <button type="button" >-</button>
+  <button type="button" >*</button>
+  <button type="button" >/</button>
+  <br><br>
+  Result = <input type="text" id="sum">
+</form>
+
+</body>
+</html>
