@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script>
+            let arrStudents = [];
+            const addStudent = () => {
+                const newStudent = document.getElementById('txtName').value;
+                const before = arrStudents.length; // 0
+                arrStudents.push(newStudent);
+                const after = arrStudents.length; // 1
+                if(after > before) {
+                    alert('Adding successfully !');
+                    document.getElementById('txtName').value = "";
+                }
+            }
+            const showStudents = () => {
+                if(arrStudents.length === 0) return;
+                let content = "";
+                arrStudents.forEach(e => content += e + "<br/>");
+                document.getElementById('students').innerHTML = content;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>My class</h1>    
+        Input student name : 
+        <input id="txtName">
+        <div style="margin-top: 10px;margin-bottom: 40px;">
+            <button type="button" onclick="addStudent()">New Student</button>
+            <button type="button" onclick="showStudents()">Show Students</button>
+        </div>
+        <div id="students"></div>
+    </body>
+</html>
