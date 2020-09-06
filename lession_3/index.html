@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <script>
+        const showMe = () => {
+            let count = 1;
+            console.log("Hello world! ", count++);
+            console.log("Hello world => ", ++count);
+
+            const arrStudents = ['Manh', 'Thu', 'Vinh'];
+            // console.log('Array student name : ', arrStudents.length);
+
+            for (let i = 0; i<arrStudents.length; i++) {
+                console.log(`Hoc sinh thu ${i+1} la ${arrStudents[i]}`);
+            }
+
+        }
+    </script>
+</header>
+
+<body>
+
+    <form action="/action_page.php">
+        <button type="button" onclick="showMe()">*</button>
+    </form>
+
+</body>
+
+</html>

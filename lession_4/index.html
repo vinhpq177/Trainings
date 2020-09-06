@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+            let string = 'Hello world';
+            const funcA = () => {
+                console.log(string);
+                funcB();
+            }
+
+            const funcB = () => {
+                console.log(string);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>My Class, plz to input our students </h1>
+        <div>
+            <span>Student's name </span>
+            <button onclick="funcA()">Click me</button>
+        </div>
+    </body>
+
+</html>
