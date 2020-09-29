@@ -1,0 +1,260 @@
+<html>
+
+<head>
+  <title>LIST CLASS</title>
+
+
+
+  <style>
+    .marginDiv {
+      margin: 10px 10px 10px 10px;
+    }
+
+    input {
+      width: 170px;
+    }
+
+    .leftColumn {
+      width: 100px;
+      padding-bottom: 10px;
+    }
+
+    .tbleStudent {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .tbleStudent td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .tbleStudent tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+  <script>
+    let arrStudents = [];
+    const addNewStudent = () => {
+      let student = convertFormToRow();
+      arrStudents.push(student);
+      genRow();
+      clearForm();
+    }
+
+  
+    const updateStudent = (stt) =>{
+     let student = convertFormToRow();
+     arrStudents.push(student);
+     upRow(stt);
+      clearForm();
+    }
+    const convertFormToRow = () => {
+      const stt = document.getElementById('stt').value;
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const height = document.getElementById('height').value;
+      const kg = document.getElementById('kg').value;
+      const birthday = document.getElementById('birthday').value;
+
+      if (!stt) {
+        alert('Stt is required!');
+        return;
+      }
+
+      if (!name) {
+        alert('Name is required!');
+        return;
+      }
+
+      if (!age) {
+        alert('Age is required!');
+        return;
+      }
+
+      if (!height) {
+        alert('Height is required!');
+        return;
+      }
+
+      if (!kg) {
+        alert('Kg is required!');
+        return;
+      }
+
+      if (!birthday) {
+        alert('Birthday is required!');
+        return;
+      }
+
+      return {
+        stt: +stt,
+        name: name,
+        age: +age,
+        height: +height,
+        kg: +kg,
+        birthday: birthday
+      };
+    }
+    const template = (student) => {
+      return `
+        <tr>
+          <td>${student.stt}</td>
+          <td>${student.name}</td>
+          <td>${student.age}</td>
+          <td>${student.height}</td>
+          <td>${student.kg}</td>
+          <td>${student.birthday}</td>
+          <td>
+            <div id="showAction"> 
+              <button onclick="showEdit(${student.stt})">Edit</button>
+              <button onclick="showView(${student.stt})">View</button>
+              <button onclick="showDelete(${student.stt})">Delete</button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+
+    const showEdit = (stt) => {
+      formBack(stt);
+      showHideLayout('none', 'block', 'none', 'none');
+    }
+    const showView = (stt) => {
+      formBack(stt);
+      showHideLayout('none', 'none', 'block', 'none');
+    }
+    const showCancel = () => {
+      clearForm();
+      showHideLayout('block', 'none', 'none', 'none');
+
+    }
+    const showBack = () => {
+      clearForm();
+      showHideLayout('block', 'none', 'none', 'none');
+
+    }
+    const showDelete = (stt) => {
+      let index = arrStudents.findIndex(e => e.stt === stt);
+      let r = confirm("Delete Student");
+      if (r == true) {
+        arrStudents.splice(index, 1);
+        genRow();
+      }
+
+    }
+    const showHideLayout = (isShowAdd, isShowEdit, isShowView, isShowDelete) => {
+      let layOutAdd = document.getElementById('divAdd');
+      let layOutEdit = document.getElementById('divEdit');
+      let layOutView = document.getElementById('divView');
+      let layOutDelete = document.getElementById('divDelete');
+      layOutAdd.style.display = isShowAdd;
+      layOutEdit.style.display = isShowEdit;
+      layOutView.style.display = isShowView;
+      layOutDelete.style.display = isShowDelete;
+    }
+    const clearForm = () => {
+      document.getElementById('stt').value = "";
+      document.getElementById('name').value = "";
+      document.getElementById('age').value = "";
+      document.getElementById('height').value = "";
+      document.getElementById('kg').value = "";
+      document.getElementById('birthday').value = "";
+    }
+    const formBack = (stt) => {
+      let student = arrStudents.find(e => e.stt === stt);
+      document.getElementById('stt').value = student.stt;
+      document.getElementById('name').value = student.name;
+      document.getElementById('age').value = student.age;
+      document.getElementById('height').value = student.height;
+      document.getElementById('kg').value = student.kg;
+      document.getElementById('birthday').value = student.birthday;
+      console.log('stt', stt, student, arrStudents);
+
+    }
+    const genRow = () => {
+      let content = "";
+      arrStudents.forEach(e => content += template(e));
+      document.getElementById('tblStudents').innerHTML = content;
+    }
+    const upRow = (stt) =>{
+      let content = "";
+
+      arrStudents.findIndex(e => e.stt === stt ) ;
+      document.getElementById('tblStudents').innerHTML = content;
+    }
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <h2>LIST CLASS</h2>
+
+  <table class="frmInputStudent">
+    <tbody>
+      <tr>
+        <td class="leftColumn"><label for="stt">Stt:</label> </td>
+        <td><input type="number" id="stt" name="stt" value=""></td>
+      </tr>
+      <tr>
+        <td class="leftColumn"><label for="name">Name:</label> </td>
+        <td><input type="text" id="name" name="name" value=""></td>
+      </tr>
+      <tr>
+        <td class="leftColumn"><label for="age">Age:</label> </td>
+        <td><input type="number" id="age" name="age" min="18" max="50" value=""></td>
+      </tr>
+      <tr>
+        <td class="leftColumn"><label for="height">Height:</label> </td>
+        <td><input type="number" id="height" name="height" min="1" max="3" value=""></td>
+      </tr>
+      <tr>
+        <td class="leftColumn"><label for="kg">Kg:</label> </td>
+        <td><input type="number" id="kg" name="kg" min="30" max="100" value=""></td>
+      </tr>
+      <tr>
+        <td class="leftColumn"><label for="bithday">Birthday:</label> </td>
+        <td><input type="date" id="birthday" name="birthday" value=""></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="marginDiv" id="divAdd"><input type="button" onclick="addNewStudent()" value="Add New"></div>
+
+
+  <div style="display: none;" class="marginDiv" id="divEdit">
+    <input type="button" onclick="updateStudent()" value="Update">
+    <input type="button" onclick="showCancel()" value="cancel">
+  </div>
+  <div style="display: none;" class="marginDiv" id="divView">
+    <input type="button" onclick="showBack()" value="back">
+  </div>
+  <div style="display: none;" class="marginDiv" id="divDelete">
+    <input type="button" onclick="ok()" value="ok">
+    <input type="button" onclick="showCancel()" value="cancel">
+  </div>
+  <h2>INFO</h2>
+  <table class="tbleStudent">
+    <tbody>
+      <tr>
+        <th>Stt</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Height</th>
+        <th>KG</th>
+        <th>Bithday</th>
+        <th>Actions</th>
+      </tr>
+    </tbody>
+    <tbody id="tblStudents">
+    </tbody>
+  </table>
+</body>
+
+</html>

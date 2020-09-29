@@ -1,27 +1,44 @@
 <!DOCTYPE html>
-<html>
-<header>
-<script>
-    const sumAB = () => {
-        const valueA = document.getElementById('paramA').value;
-        alert('Gia tri tham so A = ' + valueA);
+<!-- saved from url=(0071)file:///home/think/.cache/.fr-p0U52Y/Trainings-dev/lession_2/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><header>
+  <script>
+    const SUM = "+";
+    const SUB = "-";
+    const DIV = "/";
+    const MUL = "*";
+
+    const cacul = (operator) => {
+      const valueA = document.getElementById('paramA').value;
+      const valueB = document.getElementById('paramB').value;
+      let result;
+      if (operator === SUM) {
+        result = parseInt(valueA) + parseInt(valueB);
+      } else if (operator === SUB) {
+        result = parseInt(valueA) - parseInt(valueB);
+      } else if (operator === DIV) {
+        result = parseInt(valueA) / parseInt(valueB);
+      } else if (operator === MUL) {
+        result = parseInt(valueA) * parseInt(valueB);
+      }
+      document.getElementById('txtResult').value = result;
     }
-</script>
+  </script>
 </header>
-<body>
 
-<form action="/action_page.php">
-  <label for="fname">A</label>
-  <input type="text" id="paramA"><br><br>
-  <label for="lname">B</label>
-  <input type="text" id="paramB"><br><br>
-  <button type="button" onclick="sumAB()">+</button>
-  <button type="button" >-</button>
-  <button type="button" >*</button>
-  <button type="button" >/</button>
-  <br><br>
-  Result ab = <input type="text" id="sum">
-</form>
 
-</body>
-</html>
+  <form action="file:///action_page.php">
+    <label for="fname">A</label>
+    <input type="text" id="paramA"><br><br>
+    <label for="lname">B</label>
+    <input type="text" id="paramB"><br><br>
+    <button type="button" onclick="cacul(SUM)">+</button>
+    <button type="button" onclick="cacul(SUB)">-</button>
+    <button type="button" onclick="cacul(DIV)">/</button>
+    <button type="button" onclick="cacul(MUL)">*</button>
+    <br><br>
+    Result abcd= <input type="text" id="txtResult">
+  </form>
+
+
+
+</body></html>

@@ -1,0 +1,89 @@
+<html>
+    <head> 
+          <meta name="viewport" content="width=device-width, initial-scale=1">                          
+    
+    <title> danh sach hs </title>
+        <script>
+            let femaleStudents = [];
+            const addStudent = () => {
+                const newStudent = document.getElementById('txtName').value;
+                const before = femaleStudents.length; // 0
+                femaleStudents.push(newStudent);
+                const after = femaleStudents.length; // 1
+                if(after > before) {
+                    alert('Adding successfully !');
+                    document.getElementById('txtName').value = "";
+                }
+            }
+            const showStudents = () => {
+                if(femaleStudents.length === 0) return;
+                let content = "";
+                femaleStudents.forEach(e => content += e + "<br/>");
+                document.getElementById('students').innerHTML = content;
+            }
+           let maleStudents = [];
+            const addStudent2 = () => {
+                const newStudent2 = document.getElementById('txtName2').value;
+                const before2 = maleStudents.length; // 0
+                maleStudents.push(newStudent2);
+                const after2 = maleStudents.length; // 1
+                if(after2 > before2) {
+                    alert('Adding successfully !');
+                    document.getElementById('txtName2').value = "";
+                }
+            }
+            const showStudents2 = () => {
+                if(maleStudents.length === 0) return;
+                let content = "";
+                maleStudents.forEach(e => content += e + "<br/>");
+                document.getElementById('students2').innerHTML = content;
+            } 
+            const showAllStudents = ()=>{
+                let content ="";
+                let arrAllStudents = femaleStudents.concat(maleStudents);
+                arrAllStudents.forEach(e => content += e + "<br/>");
+                document.getElementById('allStudents').innerHTML = content;
+
+            }
+           
+        </script>
+    </head>
+    <body>
+        <h1>Danh Sach Hs Trong Lop</h1>    
+        Nhap ten hs nu : 
+        <input id="txtName"> <br></br>
+        Nhap ten hs nam:
+        <input id="txtName2"> <br></br>
+        <div style="margin-top: 10px;margin-bottom: 40px;">
+            <button type="button" onclick="addStudent()">luu hs nu</button>
+            <button type="button" onclick="showStudents()">so hs nu</button> <br></br>
+            <button type="button" onclick="addStudent2()">luu hs nam</button>
+            <button type="botton" onclick="showStudents2()">so hs nam</button><br></br>
+            <button type="button" onclick="showAllStudents()">tong so hs trong lop</button>
+        </div>
+        <h3 style="
+        color:red;
+   
+        "> Danh Sach HS Nu</h3>
+        
+        <div id="students" style="font-size:20px;"></div> 
+        
+        <h3 style="
+        color:red;
+       
+        "> Danh Sach HS Nam</h3>
+
+        <div id="students2" style="font-size:20px;"></div> 
+
+        <h3 style="
+        color:brown;
+        ">Danh Sach HS Ca Lop</h3>
+        <div id="allStudents" style="font-size:20px;"></div>
+
+
+        <h2> Hinh anh lop </h2>
+        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t1.0-9/117294443_2680241458922586_6077298626111882362_o.jpg?_nc_cat=107&_nc_sid=0debeb&_nc_ohc=oVMDrCTuTiUAX8OtCsK&_nc_ht=scontent.fhan2-5.fna&oh=baa468dee9eeb1f661895a56e019e9ea&oe=5F7EC73D" height="300">
+       
+
+    </body>
+</html>
