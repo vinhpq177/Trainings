@@ -1,0 +1,8 @@
+<button (click)="showMessage()">test</button>
+<div ng-if="students">
+  <div *ngFor="let student of students  | async; index as i;">
+    <span>{{student.stt}}</span>
+    <span>{{student.name}}</span>
+    <span>{{student.age}}</span>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+[
+  {
+    "stt":1 ,
+    "name":"manh",
+    "age":20,
+    "email":"hhmanh@gmail.com",
+    "height":1,
+    "kg":68
+  },
+  {
+    "stt":2 ,
+    "name":"manh",
+    "age":20,
+    "email":"hhmanh@gmail.com",
+    "height":1,
+    "kg":68
+  },
+  {
+    "stt":3 ,
+    "name":"manh",
+    "age":20,
+    "email":"hhmanh@gmail.com",
+    "height":5,
+    "kg":68
+  }
+
+]
