@@ -6,26 +6,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './button/button.component';
 import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { DetailComponent } from './detail/detail.component';
-import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     HomeComponent,
-    DetailComponent,
-    HeaderComponent
+    LoginComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'detail', component: DetailComponent},
-      { path: 'header', component: HeaderComponent}
+      { path: '', component: LoginComponent },
+      { path: '**', component: PageNotFoundComponent},
     ])
   ],
   providers: [],
