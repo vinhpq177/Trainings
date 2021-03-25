@@ -9,8 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
-import { OutsideLayoutComponent } from './layout/outside-layout/outside-layout.component';
+import { MainLayoutComponent } from './layout/main/main-layout.component';
+import { OutsideLayoutComponent } from './layout/outside/outside-layout.component';
 
 @NgModule({
   declarations: [
