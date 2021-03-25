@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { OutsideLayoutComponent } from './layout/outside-layout/outside-layout.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,32 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
     LoginComponent,
     PageNotFoundComponent,
+    MainLayoutComponent,
+    OutsideLayoutComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: LoginComponent },
+      // Site routes goes here
+      {
+        path: '',
+        component: MainLayoutComponent,
+        children: [
+          { path: '', component: HomeComponent, pathMatch: 'full'},
+        ]
+      },
+      // outside layout routes
+      {
+        path: '',
+        component: OutsideLayoutComponent,
+        children: [
+          { path: 'login', component: LoginComponent, pathMatch: 'full'},
+        ]
+      },
+      // no layout routes
+      // otherwise redirect to home
       { path: '**', component: PageNotFoundComponent},
     ])
   ],
