@@ -11,8 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainLayoutComponent } from './layout/main/main-layout.component';
 import { OutsideLayoutComponent } from './layout/outside/outside-layout.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
+
   declarations: [
     AppComponent,
     ButtonComponent,
@@ -21,8 +23,10 @@ import { OutsideLayoutComponent } from './layout/outside/outside-layout.componen
     PageNotFoundComponent,
     MainLayoutComponent,
     OutsideLayoutComponent,
+    HeaderComponent,
   ],
   imports: [
+
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
